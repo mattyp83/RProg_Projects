@@ -1,0 +1,66 @@
+##############################################################
+## checks that the user input state is a valid state
+
+statecheck <- function(state) {
+y <- NULL
+x <- state.abb
+for (i in 1:50) {
+	if (state == x[i]) { print("good"); y <- state }
+	
+}
+	if (is.null(y)) { stop("invalid state")}
+
+
+}
+
+
+## OR THIS
+
+myfun <- function(state) {
+	x <- state.abb
+	if(!state %in% x) stop ("invalid state")
+	state
+}
+##############################################################
+
+
+##############################################################
+## checks that the user input outcome is a valid outcome
+
+outcomecheck <- function(outcome) {
+y <- NULL
+x <- c("heart attack", "heart failure", "pneumonia")/*-*+
+for (i in 1:3) {
+	if (outcome == x[i]) { print("good"); y <- outcome }
+	
+}
+	if (is.null(y)) { stop("invalid outcome")}
+
+
+}
+
+
+
+
+## OR THIS
+
+
+myfun2 <- function(outcome) {
+	x <- c("heart attack", "heart failure", "pneumonia")
+	if(!outcome %in% x) stop ("invalid outcome")
+	outcome
+}
+##############################################################
+
+
+
+
+
+function <- best(state, outcome) {
+data <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
+statecheck(state)
+outcomecheck(outcome)
+# first filter all the rows by the user-inputted 'state' 
+# then scan through this new matrix for the user-inputted outcome. 
+
+
